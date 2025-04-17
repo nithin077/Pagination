@@ -1,15 +1,16 @@
 export default Pagination = ({ setCurrentpage, currentPage, totalPages }) => {
-  handlePagination = (pageNo) => {
+  const handlePagination = (pageNo: number) => {
     setCurrentpage(pageNo);
   };
 
-  handleNextPage = () => {
-    setCurrentpage((prev) => prev + 1);
+  const handleNextPage = () => {
+    setCurrentpage((prev: number) => prev + 1);
   };
 
-  handlePrevPage = () => {
-    setCurrentpage((prev) => prev - 1);
+  const handlePrevPage = () => {
+    setCurrentpage((prev: number) => prev - 1);
   };
+
   return (
     <div className="pagination-container">
       <button

@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import UserCard from "././components/UserCard";
 import Pagination from "././components/Pagination";
 export default function App() {
-  const [products, setProducts] = useState();
+  const [products, setProducts] = useState([]);
   const [currentPage, setCurrentpage] = useState(0);
 
   const PAGE_SIZE = 10;
@@ -18,7 +18,7 @@ export default function App() {
     fetchData();
   }, []);
 
-  const totalUsers = products && products.length;
+  const totalUsers = products && products?.length;
   const totalPages = Math.ceil(totalUsers / PAGE_SIZE);
   const startPage = currentPage * PAGE_SIZE;
   const endPage = startPage + PAGE_SIZE;
@@ -34,7 +34,7 @@ export default function App() {
         totalPages={totalPages}
       />
       <div className="user-container">
-        {products.slice(startPage, endPage).map((res) => (
+        {products.slice(startPage, endPage).map((res: any) => (
           <UserCard
             key={res.id}
             firstName={res?.firstName}
